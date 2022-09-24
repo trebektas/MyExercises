@@ -1,4 +1,4 @@
-import { modules, students, mentors, classes } from "./hyf";
+import { modules, students, mentors, classes } from "./hyf.js";
 
 /**
  * We would like to have a list of everyone that is currently participating in a class.
@@ -12,10 +12,33 @@ import { modules, students, mentors, classes } from "./hyf";
  *  [{ name: 'John', role: 'student' }, { name: 'Mary', role: 'mentor' }]
  */
 const getPeopleOfClass = (className) => {
-  // TODO complete this function
+  if(students.some(student => student.class === className)){
+    
+    const classCurrentModule = classes.find(item => {
+      if(item.name === className){
+        return item.currentModule;
+      }
+    });
+
+    const classMentor = mentors.find(person => {
+      if(person.nowTeaching === classCurrentModule.currentModule){
+        return person.name;
+      }
+    });
+
+    const filteredClass = students.filter(item => {
+      if(item.class === className){
+        return item.name;
+      }
+    });
+
+    return classMentor;
+  } else {
+    return `There is no student registration for ${className}`;
+  }
 };
 // You can uncomment out this line to try your function
-// console.log(getPeopleOfClass('class34'));
+console.log(getPeopleOfClass('class34'));
 
 /**
  * We would like to have a complete overview of the current active classes.
