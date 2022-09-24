@@ -9,9 +9,13 @@ import { modules, students, mentors, classes } from "./hyf";
  */
 const possibleMentorsForModule = (moduleName) => {
   // TODO complete this function
+  return mentors.filter( mentor => {
+    mentor.canTeach.includes(moduleName);
+    return mentor.name;
+  });
 };
 // You can uncomment out this line to try your function
-// console.log(possibleMentorsForModule('using-apis'));
+console.log(possibleMentorsForModule('using-apis'));
 
 /**
  * Tjebbe wants to make it even easier for himself.
