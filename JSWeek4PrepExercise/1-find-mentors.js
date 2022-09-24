@@ -1,4 +1,4 @@
-import { modules, students, mentors, classes } from "./hyf";
+import { modules, students, mentors, classes } from "./hyf.js";
 
 /**
  * Tjebbe would like help to get a list of possible mentors for a module.
@@ -8,11 +8,11 @@ import { modules, students, mentors, classes } from "./hyf";
  *  ['John', 'Mary']
  */
 const possibleMentorsForModule = (moduleName) => {
-  // TODO complete this function
-  return mentors.filter( mentor => {
-    mentor.canTeach.includes(moduleName);
-    return mentor.name;
-  });
+  const filteredMentors = mentors.filter(mentor => mentor.canTeach.includes(moduleName));
+  const filteredNames = filteredMentors.map(mentorName => {
+      return mentorName.name
+    });
+  return filteredNames;
 };
 // You can uncomment out this line to try your function
 console.log(possibleMentorsForModule('using-apis'));
@@ -24,7 +24,12 @@ console.log(possibleMentorsForModule('using-apis'));
  * It should return a single name.
  */
 const findMentorForModule = (moduleName) => {
-  // TODO complete this function
+  const availableMentors = mentors.filter(mentor => mentor.canTeach.includes(moduleName));
+  const availableMentorsName = availableMentors.map(mentorName => {
+    return mentorName.name
+  });
+  const randomMentor = availableMentorsName[Math.floor(Math.random()*availableMentorsName.length)];
+  return randomMentor;
 };
 // You can uncomment out this line to try your function
-// console.log(findMentorForModule('javascript'));
+console.log(findMentorForModule('javascript'));
