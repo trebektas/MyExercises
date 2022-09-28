@@ -11,7 +11,7 @@
  */
 
 const calculateTotalPriceInCents = (products) => {
-  
+  return products.reduce((sum, val) => sum + val.priceInCents , 0);
 };
 
 /**

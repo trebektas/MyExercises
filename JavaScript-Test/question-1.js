@@ -8,7 +8,16 @@
  * - The array needs to have at least 1 item that has the `isDelivered` property set to `true` (to indicate the delivery is completed)
  * - The array needs to have at least 1 item that has the `isDelivered` property set to `false`
  */
-
+const deliveries = [
+  {
+    description: "Package1",
+    isDelivered: true
+  },
+  {
+    description: "Package2",
+    isDelivered: false
+  }
+];
 
 
 /**
