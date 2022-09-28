@@ -37,11 +37,24 @@ const MESSAGE = {
  */
 const getVacancyMessage = (rental, bookings = []) => {
   // Get the amount of bookings that are reserved for the rental (rentalId in `booking` object is the same as the id in the `rental` parameter)
-
+  const bookingAmount = bookings.filter(booking =>booking.rentalId===rental.id).length;
+  
   // Calculate the amount available for this rental (the total number available - the amount that are reserved)
+  const numberRentalAvailable = rental.totalNumberAvailable - bookingAmount;
 
   // Return the right message using the MESSAGE object
-
+  if(numberRentalAvailable === 0){
+    return MESSAGE.UNAVAILABLE;
+  }
+  if(numberRentalAvailable === 1){
+    return MESSAGE.ONLY1LEFT;
+  }
+  if(numberRentalAvailable === 2 || numberRentalAvailable === 3){
+    return MESSAGE.ONLYXLEFT(numberRentalAvailable);
+  }
+  if(numberRentalAvailable > 3){
+    return MESSAGE.AVAILABLE;
+  }
 };
 
 /**

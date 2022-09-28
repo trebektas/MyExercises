@@ -32,8 +32,14 @@ const countElements = (arr = [], element) => {
  *
  * To run the test make sure you have done an `npm install` command in your terminal and then run `npm t` or `npm run test`
  */
+const testArray = ["hack",2,"your",2,"future",2,3,"future"];
+const testFunctionForStringFuture = countElements(testArray, "future");
+const testFunctionForNumberTwo = countElements(testArray, 2);
 describe("countElements", () => {
-  it("", () => {
-    expect(false).toBe(true);
+  it("counts the number of times the sample string element", () => {
+    expect(testFunctionForStringFuture).toBe(2);
+  });
+  it("counts the number of times the sample number element", () => {
+    expect(testFunctionForNumberTwo).toBe(3);
   });
 });

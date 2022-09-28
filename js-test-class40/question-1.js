@@ -8,7 +8,16 @@
  * - The array needs to have at least 1 item that has the `isAvailable` property set to `true` (to indicate the property is available)
  * - The array needs to have at least 1 item that has the `isAvailable` property set to `false`
  */
-
+const rentals = [
+  {
+    description: "Small Flat",
+    isAvailable: true
+  },
+  {
+    description: "Private Room",
+    isAvailable: false
+  }
+];
 
 
 /**

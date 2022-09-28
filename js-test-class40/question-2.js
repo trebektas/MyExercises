@@ -11,8 +11,11 @@
  * - `nearLake`: A boolean to be used when filtering. If this is true only rentals with the `nearLake` boolean being true should be in the resulting array. If false then only rentals with the `nearLake` boolean being false should be in the resulting array.
  * - `tag`: A string to be used when filtering. Only rentals that have this `tag` in their `tags` array should be in the resulting array.
  */
-const filterRentals = (rentals = [], nearLake, tag) => {};
-
+const filterRentals = (rentals = [], nearLake, tag) => {
+  const filteredRentals = rentals.filter(obj => obj.nearLake === nearLake && obj.tags.some(tagItem => tagItem === tag))
+  return filteredRentals
+};
+//users = users.filter(obj => obj.name == filter.name && obj.address == filter.address)
 /**
  * TEST CODE. DO NOT EDIT
  */
