@@ -20,9 +20,18 @@
 const possibleSkateDays = (data) => {
   const resultNegative = 'Helaas pindakaas';
   const possibleData = [];
-  if (data.length > 0){
-    
-  } else return resultNegative;
+  let counter = 0;
+    if (data.length > 0){
+      data.filter(dataObj => {
+        if(dataObj.lowestTemperature<1 && dataObj.highestTemperature<1){
+          counter++;
+          if(counter > 5){
+            possibleData.push(dataObj.date);
+          }
+        }else counter = 0;
+      });
+      return possibleData;
+    } else return resultNegative;
 };
 
 /**
