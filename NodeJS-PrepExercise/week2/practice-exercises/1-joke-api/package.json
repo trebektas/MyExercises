@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.0"
+  },
+  "name": "1-joke-api",
+  "description": "Did you know that there is an API for Chuck Norris jokes? That's incredible, right!?",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
