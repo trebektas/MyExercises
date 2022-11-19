@@ -9,10 +9,7 @@
  * - for basic authentication the username and password need to be base64 encoded
  */
 
- import express from 'express';
  import fetch from 'node-fetch';
-
-const app = express();
 
 async function printBooks() {
   try {

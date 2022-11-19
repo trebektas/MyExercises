@@ -8,9 +8,25 @@
  * Hints:
  * - make sure to use the correct headers and http method in the request
  */
+import fetch from "node-fetch";
 
-function makeReservation() {
-  // YOUR CODE GOES IN HERE
+const body = {
+  "name": "Hacker",
+  "numberOfPeople": 7
+};
+
+async function makeReservation() {
+  try {
+    const response = await fetch('https://httpbin.org/post', {
+      method: 'post',
+      body: JSON.stringify(body),
+      headers: {'Content-Type': 'application/json'}
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 makeReservation();
